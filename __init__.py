@@ -16,7 +16,7 @@ except Exception as e:
 @cbpi.actor
 class PiFace(ActorBase):
 
-    relay = Property.Select("PiFace Relay", options=[1,2,3,4,5,6,7,8])
+    relay = Property.Select("PiFace Relay", options=[0,1,2,3,4,5,6,7])
     @classmethod
     def init_global(cls):
         try:
@@ -28,6 +28,6 @@ class PiFace(ActorBase):
         piface.digital_write(int(self.relay), 1)
 
     def off(self):
-        piface.digital_write(int(self.relay), 1)
+        piface.digital_write(int(self.relay), 0)
 
 
