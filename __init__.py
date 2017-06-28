@@ -25,9 +25,13 @@ class PiFace(ActorBase):
             pass
 
     def on(self, power=0):
+        self.api.app.logger.info("SWITCH ON")
         piface.digital_write(int(self.relay), 1)
+        self.api.app.logger.info("SWITCH ON DONE")
 
     def off(self):
+        self.api.app.logger.info("SWITCH OFF")
         piface.digital_write(int(self.relay), 0)
+        self.api.app.logger.info("SWITCH OFF DONE")
 
 
